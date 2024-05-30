@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNSCAPE-HOMEPAGE</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="image-container">
+        <div class="main-container">
+            <div class="navbar"> 
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'faq' %}">FAQ</a></li>
+                        <li><a href="{% url 'library' %}">LIBRARY</a></li>
+                        <li><a href="{% url 'game' %}">GAME</a></li>
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+        <div class="overlay-text">
+            <p>Hello Friend! Welcome to our space.</p>
+            <h1>SIGNSCAPE</h1>
+            <h2>EXPLORE THE WORLD OF SIGN LANGUAGE</h2>
+        </div>
+    </div>
+    <h2 class="about-signscape">About SIGNSCAPE</h2>
+    <hr>
+   
+    <div class="overlay-section">
+        <div class="image-overlay"></div>
+        <div class="blue-box">
+            <p>"Unlock the World of Signs with SignScape: Where Learning Knows No Bounds!"</p>
+            <p>Welcome to SignScape,  premier destination for all things related to sign language. At SignScape, we are passionate about fostering inclusivity and bridging communication gaps through the universal language of signs.</p>
+        </div>
+    </div>
+
+    
+<div class="horizontal-nav">
+    <ul>
+        <li><a href="who.html">WHO WE ARE</a></li>
+        <li><a href="what.html">WHAT WE BELIEVE</a></li>
+        <li><a href="how.html">HOW WE WORK</a></li>
+    </ul>
+</div>
+
+
+<div class="image3-container">
+    <img src="{% static 'image4.jpg' %}" alt="Image 3">
+</div>
+
+   
+    <div class="what-we-offer">
+        <p>What We Offer</p>
+    </div>
+
+    
+    <div class="additional-text">
+        <div class="text-section">
+            <h3>OUR MISSION</h3>
+            <p>
+                Our mission at SignScape is to provide a comprehensive platform <br>
+                that empowers individuals to learn, practice, and appreciate sign language.<br>
+                We aim to break down barriers to communication, promote cultural understanding,<br>
+                 and celebrate the richness of sign language expression.</p>
+        </div>
+        <div class="text-section">
+            <h3>Sign Language Library </h3>
+            <p>Dive into our extensive collection of resources, including tutorials, articles,<br>
+                 and videos, designed to cater to learners of all levels.<br>
+                  Whether you're a beginner eager to master basic signs or an advanced user <br>
+                  looking to expand your vocabulary, our library has something for everyone.</p>
+        </div>
+        <div class="text-section">
+            <h3>Games</h3>
+            <p>Explore the fun side of sign language with our interactive games designed<br>
+                to engage and challenge users while reinforcing learning. </p>
+        </div>
+    </div>
+
+</body>
+<footer class="footer">
+    <div class="footer-left">
+        <p>All Right Reserved | 2024</p>
+    </div>
+    <div class="footer-right">
+        <p>Term of Services • Privacy Policy</p>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game - Levels</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'levels.css' %}">
+    
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+      <h1>Levels</h1>
+      <ul>
+        <li><a href="{% url 'quiz' %}">Level 1</a></li>
+        <li><a href="{% url 'quiz' %}">Level 2</a></li>
+        <li><a href="{% url 'quiz' %}">Level 3</a></li>
+        <li><a href="quiz!.html?level=4">Level 4</a></li>
+        <li><a href="quiz!.html?level=5">Level 5</a></li>
+        <li><a href="quiz!.html?level=6">Level 6</a></li>
+        <li><a href="quiz!.html?level=7">Level 7</a></li>
+        <li><a href="quiz!.html?level=8">Level 8</a></li>
+        <li><a href="quiz!.html?level=9">Level 9</a></li>
+        <li><a href="quiz!.html?level=10">Level 10</a></li>
+        <li><a href="quiz!.html?level=11">Level 11</a></li>
+        <li><a href="quiz!.html?level=12">Level 12</a></li>
+      </ul>
+    </div>
+    
+    <a href="{% url 'game' %}">&#127968;</a>
+  </div>
+</body>
+</html>

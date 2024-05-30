@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignScape Game Menu</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'game.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>SignScape Game</h1>
+    <h3>Welcome fellow Signscapers!</h3>
+    <button class="play-button"><a href="{% url 'levels' %}">Play</a></button>
+    <button class="instructions-button"><a href="{% url 'instructions' %}">How to Play</a></button>
+  </div>
+  <footer>
+    SignScape 2024 &copy;
+  </footer>
+</body>
+</html>
+

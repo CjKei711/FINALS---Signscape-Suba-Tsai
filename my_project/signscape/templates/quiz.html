@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignScape Game</title>
+  <link rel="stylesheet" href="{% static 'quiz.css' %}">
+</head>
+<body>
+  <div class="quiz-container"> 
+    <div class="quiz">
+      <div class="heading-container">
+        <h2>SignScape Game</h2>
+      </div>
+      <div class="heading-container">
+        <h2 id="level-header">Level 1</h2>
+      </div>
+      <p id="question-count"></p> 
+      <h1 id="question">Question</h1>
+      <div id="image-container"> 
+        <img id="question-img" src="" alt="Question GIF">
+      </div>
+      <div class="options" id="options"></div>
+      <div id="next-btn-container"> 
+        <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+      </div>
+      <a href="{% url 'home' %}">&#127968;</a> 
+    </div>
+  </div>
+
+  <div id="result-container" style="display: none;"> 
+    <div id="result" style="font-size: 24px;"></div> 
+    <div id="correct-answer" style="display: none;"></div> 
+  </div>
+  
+  <div id="quiz-end" style="display: none; text-align: center; color: white;">
+    <h2>Quiz Ended</h2>
+    <p>You got <span id="correct-count">0</span> out of <span id="total-questions"></span> correct!</p>
+    <div style="display: flex; justify-content: center;">
+      <button id="replay-btn" onclick="replayLevel()">Replay Level</button>
+      <button id="next-level-btn" onclick="nextLevel()">Next Level</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let currentQuestionIndex = 0;
+    let correctCount = 0;
+
+    const questions = [
+      {
+        question: "What does this sign say?",
+        imgSrc: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExazg3c3R5YmYydnFucTZoYThrY2wxNWtkbW13NzJ0MXNvaGptNTc1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o16Sp96t65trxcNMBg/giphy.gif",
+        options: ["Goodbye", "Excuse Me", "Hello", "How Are You?"],
+        correctAnswer: 2
+      },
+      {
+        question: "What does this sign say?",
+        imgSrc: "https://c.tenor.com/XHdwTXM4cycAAAAC/tenor.gif",
+        options: ["Goodbye", "Excuse Me", "Hello", "How Are You?"],
+        correctAnswer: 0
+      },
+      {
+        question: "What does this sign say?",
+        imgSrc: "https://signasl.files.wordpress.com/2015/11/output_fymkzk.gif?w=602&h=602",
+        options: ["Goodbye", "Excuse Me", "Hello", "How Are You?"],
+        correctAnswer: 1
+      },
+      {
+        question: "What does this sign say?",
+        imgSrc: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExazg3c3R5YmYydnFucTZoYThrY2wxNWtkbW13NzJ0MXNvaGptNTc1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o16Sp96t65trxcNMBg/giphy.gif",
+        options: ["Goodbye", "Excuse Me", "Hello", "How Are You?"],
+        correctAnswer: 0
+      }
+    ];
+
+    function loadQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      document.getElementById('question').innerText = currentQuestion.question;
+      document.getElementById('question-img').src = currentQuestion.imgSrc;
+      document.getElementById('question-img').style.width = "300px";
+      document.getElementById('question-img').style.height = "300px";
+
+      const optionsContainer = document.getElementById('options');
+      optionsContainer.innerHTML = '';
+      currentQuestion.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.onclick = function() {
+          checkAnswer(index);
+        };
+        optionsContainer.appendChild(button);
+      });
+
+      document.getElementById('question-count').innerText = `Question ${currentQuestionIndex + 1}/${questions.length}`;
+    }
+
+    function checkAnswer(selectedOptionIndex) {
+      const currentQuestion = questions[currentQuestionIndex];
+      if (selectedOptionIndex === currentQuestion.correctAnswer) {
+        document.getElementById('result').innerText = 'Correct!';
+        correctCount++;
+      } else {
+        document.getElementById('result').innerText = 'Incorrect!';
+        showCorrectAnswer(currentQuestion.correctAnswer);
+      }
+      document.getElementById('result-container').style.display = 'block';
+      document.getElementById('next-btn').style.display = 'block';
+    }
+
+    function showCorrectAnswer(correctOptionIndex) {
+      const correctOption = questions[currentQuestionIndex].options[correctOptionIndex];
+      document.getElementById('correct-answer').innerText = `The correct answer is: ${correctOption}`;
+      document.getElementById('correct-answer').style.display = 'block';
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+        document.getElementById('result-container').style.display = 'none';
+        document.getElementById('result').innerText = '';
+        document.getElementById('correct-answer').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'none';
+      } else {
+        endQuiz();
+      }
+    }
+
+    function endQuiz() {
+      document.getElementById('quiz-end').style.display = 'block';
+      document.getElementById('correct-count').innerText = correctCount;
+      document.getElementById('total-questions').innerText = questions.length;
+    }
+
+    function replayLevel() {
+      currentQuestionIndex = 0;
+      correctCount = 0;
+      loadQuestion();
+      document.getElementById('quiz-end').style.display = 'none';
+    }
+
+    function nextLevel() {
+      window.location.href = 'levels!.html';
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+.alphabet-section {
+    padding: 50px 20px;
+    background-image: url('{% static "image2.png" %}');
+    background-size: cover;
+    background-position: center;
+    color: #b0d3db;
+    text-align: center; 
+}
+
+.alphabet-section h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center; 
+}
+
+.alphabet-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: #b0d3db;
+    margin: 10px auto 0; 
+}
+
+.letter-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.letter-box {
+    background-color: rgba(23, 26, 67, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: calc(33.33% - 40px); 
+    height: 600px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.letter-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.letter-box label {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #b0d3db;
+    margin-bottom: 10px;
+}
+
+.letter-box img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.letter-box p {
+    font-size: 16px;
+    color: #b0d3db;
+    margin: 0;
+    text-align: center; 
+}

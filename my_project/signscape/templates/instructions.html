@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game Instructions</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'instructions.css' %}">
+</head>
+<body>
+  <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihaCaWG3ujsKSho2k70s6Qi7lSHhazfO4RAXD1g1pjrrO-W8ffoUhEmnMTC1K2alblZ5eISJfyMQGhEe4yGC0LnDm-cdXPx8fg=s1600-rw-v1" alt="Mascot" class="mascot" onclick="changeMascot()">
+  <div class="container">
+    <div class="instructions" id="instructions">
+      <h1>How to Play</h1>
+      <p>Welcome to the SignScape Game!</p>
+      <p>Instructions:</p>
+      <ol>
+        <li>An image of a sign will be displayed on the screen, representing a specific word or concept in sign language.</li>
+        <li>Below the image, four multiple-choice options will be provided.</li>
+        <li>Your task is to select the correct meaning of the sign from the given options.</li>
+        <li>Choose the option that best matches the sign you see, and see if you can correctly identify the meaning!</li>
+        <li>Test your knowledge and see how many signs you can accurately interpret within the time limit.</li>
+      </ol>
+    </div>
+    <!-- Home button -->
+    <a href="{% url 'home' %}">&#127968;</a>
+  </div>
+
+  <script>
+    function changeMascot() {
+      var mascot = document.querySelector('.mascot');
+      mascot.src = 'moving.gif';
+    }
+
+    function showInstructions() {
+      var instructions = document.getElementById("instructions");
+      instructions.style.opacity = "1";
+    }
+
+    setTimeout(showInstructions, 500); 
+  </script>
+</body>
+</html>

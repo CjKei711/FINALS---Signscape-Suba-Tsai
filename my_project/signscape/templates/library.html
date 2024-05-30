@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNSCAPE - Library</title>
+    <link rel="stylesheet" href="{% static 'library.css' %}">
+    <script src="{% static 'topic.js' %}" defer></script>
+</head>
+<body>
+    <div class="image-container">
+        <div class="main-container">
+            <div class="navbar"> 
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'faq' %}">FAQ</a></li>
+                        <li><a href="{% url 'library' %}">LIBRARY</a></li>
+                        <li><a href="{% url 'game' %}">GAME</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="overlay-text">
+            <p>Hello Friend! Welcome to our space.</p>
+            <h1>SIGNSCAPE</h1>
+            <h2>EXPLORE THE WORLD OF SIGN LANGUAGE</h2>
+        </div>
+    </div>
+
+    <div class="library-section">
+        <h2>Sign Language Library</h2>
+        <p>Dive into our extensive collection of resources, including tutorials, articles, and videos, designed to cater to learners of all levels. Whether you're a beginner eager to master basic signs or an advanced user looking to expand your vocabulary, our library has something for everyone.</p>
+        
+        <div class="topic-boxes">
+            <a href="{% url 'alphabet' %}" class="topic-box">
+                <h3>Alphabet</h3>
+                <p>Explore the sign language alphabet.</p>
+            </a>
+            <a href="{% url 'travel' %}" class="topic-box">
+                <h3>Travel Words</h3>
+                <p>Learn signs related to travel and transportation.</p>
+            </a>
+            <a href="{% url 'communication' %}" class="topic-box">
+                <h3>Communication Words</h3>
+                <p>Discover signs related to communication.</p>
+            </a>
+            <a href="{% url 'introduction' %}" class="topic-box">
+                <h3>Introduction Words</h3>
+                <p>Learn signs for introductions and greetings.</p>
+            </a>
+            <a href="{% url 'school' %}" class="topic-box">
+                <h3>School Terms</h3>
+                <p>Discover signs related to school and education.</p>
+            </a>
+            <a href="{% url 'friendly' %}" class="topic-box">
+                <h3>Friendly Terms</h3>
+                <p>Learn signs for friendly interactions.</p>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <p>All Right Reserved | 2024</p>
+        </div>
+        <div class="footer-right">
+            <p>Term of Services • Privacy Policy</p>
+        </div>
+    </footer>
+</body>
+</html>
